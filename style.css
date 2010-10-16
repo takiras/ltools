@@ -1,0 +1,55 @@
+body {
+	font-family: Segoe UI, Calibri, Lucida Grande, Tahoma, sans-serif;
+	font-size:0.775em;
+}
+input {
+	font-family: Segoe UI, Calibri, Lucida Grande, Tahoma, sans-serif;
+}
+.ja {
+	font-family: Meiryo UI, Meiryo, MS UI Gothic, MS Gothic, MS UI Mincho, MS Gothic, sans-serif;
+}
+th {
+	color: #5b69d8;
+	background-color: #dadaff;
+	min-width: 13em;
+}
+td {
+	background-color: #f0f0ff;
+}
+td.c1 {
+	background-color: #f0f0ff;
+}
+td.c2 {
+	background-color: #f0fff0;
+}
+td.c3 {
+	background-color: #e8e8fc;
+}
+td.c4 {
+	background-color: #e8fce8;
+}
+td.g1 {
+	background-color: #f9f9f9;
+}
+td.g2 {
+	background-color: #f3f3f3;
+}
+td.g3 {
+	background-color: #f0f0f0;
+}
+td.g4 {
+	background-color: #eaeaea;
+}
+a {
+	text-decoration: none;
+	color: #5b69d8;
+	border-width: 0px 0px 1px 0px;
+	border-style: none none dashed none;
+}
+a:hover {
+	color: #7b89f8;
+}
+table {
+display: inline-block;
+vertical-align: top;
+}
