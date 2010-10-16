@@ -402,6 +402,7 @@ function conjugate($v,$conjugation,$prefix) {
 		foreach ($compound_auxiliaries as $auxiliary) {
 			if (substr($v,-strlen($auxiliary))==$auxiliary and $v!==$auxiliary) {
 				if ($conjugation!=='honorific' and $conjugation!=='humble' and conjugate($auxiliary,$conjugation,substr($v,0,-strlen($auxiliary)))=='なし') return 'なし';
+				else if ($conjugation=='honorific' or $conjugation=='humble') return conjugate($auxiliary,$conjugation,substr($v,0,-strlen($auxiliary)));
 				return substr($v,0,-strlen($auxiliary)) . conjugate($auxiliary,$conjugation,substr($v,0,-strlen($auxiliary)));
 			}
 		}
@@ -428,7 +429,7 @@ function conjugate($v,$conjugation,$prefix) {
 	case '行く':
 	case 'いく':
 		switch ($conjugation) {
-		case 'humble': return '参る';
+		case 'humble': return $prefix . '参る';
 		}
 		break;
 	case 'いる':
@@ -630,8 +631,8 @@ function conjugate($v,$conjugation,$prefix) {
 		case 'continuative': return 'き';
 		case 'hypothetical': return 'くれ';
 		case 'commanding': return 'こい';
-		case 'humble': return '参る';
-		case 'honorific': return 'いらっしゃる／' . $prefix . 'お出でになる／' . $prefix . 'お出でなさる';
+		case 'humble': return $prefix . '参る';
+		case 'honorific': return $prefix . 'いらっしゃる／' . $prefix . 'お出でになる／' . $prefix . 'お出でなさる';
 		}
 		break;
 	case '来る':
@@ -640,8 +641,8 @@ function conjugate($v,$conjugation,$prefix) {
 		case 'continuative': return '来';
 		case 'hypothetical': return '来れ';
 		case 'commanding': return '来い';
-		case 'humble': return '参る';
-		case 'honorific': return 'いらっしゃる／' . $prefix . 'お出でになる／' . $prefix . 'お出でなさる';
+		case 'humble': return $prefix . '参る';
+		case 'honorific': return $prefix . 'いらっしゃる／' . $prefix . 'お出でになる／' . $prefix . 'お出でなさる';
 		}
 		break;
 	case 'する':
