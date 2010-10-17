@@ -529,7 +529,7 @@ function conjugate($v,$conjugation,$prefix) {
 		case 'non-past negative': return conjugate('ます','imperfective',$prefix) . 'ん';
 		case 'past negative': return conjugate('ます','non-past negative',$prefix) . conjugate('だ','polite past','');
 		case 'volitional': return conjugate('ます','continuative',$prefix) . 'ょう';
-		case 'negative conjunctive': return 'ませずに';
+		case 'conjunctive negative': return 'ませずに';
 		}
 		break;
 	case 'つ':
@@ -553,16 +553,20 @@ function conjugate($v,$conjugation,$prefix) {
 	case '在る':
 		switch ($conjugation) {
 		case 'potential': return conjugate($v,'continuative',$prefix) . 'える';
+		case 'volitional negative': return conjugate($v,'non-past',$prefix) . 'まい／' . $prefix . conjugate(conjugate($v,'non-past negative',$prefix),'volitional',$prefix);
 		case 'non-past negative': return 'ない';
 		}
 		break;
 	case 'である':
 		switch ($conjugation) {
+		case 'volitional negative':
+			return 'であるまい／ではなかろう';
+			break;
 		case 'non-past negative':
 		case 'past negative':
 		case 'polite non-past negative':
 		case 'polite past negative':
-		case 'negative conjunctive':
+		case 'conjunctive negative':
 			return 'では' . conjugate('ある',$conjugation,'では');
 			break;
 		default:
@@ -831,7 +835,7 @@ function conjugate($v,$conjugation,$prefix) {
 		if (get_type($v,$prefix)=='adj-i') return 'なし';
 		return conjugate($v,'imperfective',$prefix) . conjugate('ぬ','continuative','');
 		break;
-	case 'negative conjunctive':
+	case 'conjunctive negative':
 		return conjugate(conjugate($v,'non-past negative',$prefix),'conjunctive','') . '／' . $prefix . conjugate($v,'non-past negative',$prefix) . 'で';
 		break;
 		//past
@@ -1140,7 +1144,7 @@ $conjugation=array(
 'passive-causative',
 'short passive-causative',
 'conjunctive',
-'negative conjunctive',
+'conjunctive negative',
 'representative',
 'request',
 'negative request',

@@ -163,8 +163,11 @@ function conjugate($v,$person,$tense,$prefix) {
 	if (strstr($tense,' perfect')!==false OR strstr($tense,'pluperfect')!==false OR strstr($tense,'past anterior')!==false OR $tense=='perfect' OR $tense=='negative imperative') $compound_tense = true;
 	else $compound_tense= false;
 	//compressed infinitives
-	if (substr($v,-3)=='rre' and $tense!=='future' and $tense!=='conditional' and ($tense . $person!=='negative imperative1')) {
-		return conjugate(substr($v,0,-3) . 'cere',$person,$tense,$prefix);
+	if (substr($v,-4)=='urre' and $tense!=='future' and $tense!=='conditional' and ($tense . $person!=='negative imperative1')) {
+		return conjugate(substr($v,0,-4) . 'ucere',$person,$tense,$prefix);
+	}
+	if (substr($v,-4)=='orre' and $tense!=='future' and $tense!=='conditional' and ($tense . $person!=='negative imperative1')) {
+		return conjugate(substr($v,0,-4) . 'onere',$person,$tense,$prefix);
 	}
 	//auxiliary verb for perfect tenses
 	switch ($prefix . $v) {
